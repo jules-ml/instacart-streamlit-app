@@ -1,7 +1,6 @@
 __pycache__/
-*.csv
 *.ipynb_checkpoints/
 .env
 *.log
-data/
 models/final_model.pkl
+git push origin main
