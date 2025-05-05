@@ -4,7 +4,7 @@ import joblib
 import numpy as np
 
 # Load assets from parent folders
-model = joblib.load("models/final_model.pkl")
+model = joblib.load("streamlit_app/models/final_model.pkl")
 user_features = pd.read_csv("../data/user_features.csv")
 products_df = pd.read_csv("../data/products.csv")
 user_product_history = pd.read_csv("../data/user_product_history.csv")
