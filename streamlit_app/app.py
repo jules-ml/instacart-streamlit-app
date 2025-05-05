@@ -1,13 +1,14 @@
 import streamlit as st
 import pandas as pd
 import joblib
+import numpy as np
 
-# Load assets
-model = joblib.load("models/final_model.pkl")
-user_features = pd.read_csv("data/user_features.csv")
-products_df = pd.read_csv("data/products.csv")
-user_product_history = pd.read_csv("data/user_product_history.csv")
-product_reorder_rate = pd.read_csv("data/product_reorder_rate.csv")
+# Load assets from parent folders
+model = joblib.load("../models/final_model.pkl")
+user_features = pd.read_csv("../data/user_features.csv")
+products_df = pd.read_csv("../data/products.csv")
+user_product_history = pd.read_csv("../data/user_product_history.csv")
+product_reorder_rate = pd.read_csv("../data/product_reorder_rate.csv")
 
 # Rename columns if needed
 user_product_history = user_product_history.rename(columns={
@@ -44,7 +45,6 @@ def predict_user_top_bottom_products(user_id):
     if "user_product_reorder_count" in input_df.columns:
         input_df["adjusted_score"] += 0.3 * input_df["user_product_reorder_count"]
 
-    import numpy as np
     input_df["adjusted_score"] += np.random.normal(0, 0.01, size=len(input_df))
 
     input_df = input_df.merge(products_df[["product_id", "product_name"]], on="product_id", how="left")
