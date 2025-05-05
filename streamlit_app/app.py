@@ -5,10 +5,10 @@ import numpy as np
 
 # Load assets from parent folders
 model = joblib.load("streamlit_app/models/final_model.pkl")
-user_features = pd.read_csv("../data/user_features.csv")
-products_df = pd.read_csv("../data/products.csv")
-user_product_history = pd.read_csv("../data/user_product_history.csv")
-product_reorder_rate = pd.read_csv("../data/product_reorder_rate.csv")
+user_features = pd.read_csv("data/user_features.csv")
+products_df = pd.read_csv("data/products.csv")
+user_product_history = pd.read_csv("data/user_product_history.csv")
+product_reorder_rate = pd.read_csv("data/product_reorder_rate.csv")
 
 # Rename columns if needed
 user_product_history = user_product_history.rename(columns={
